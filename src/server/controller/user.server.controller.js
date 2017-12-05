@@ -49,7 +49,7 @@ exports.signIn = function(req, res) {
   });
 };
 
-exports.getAllUser = function(req, res, next) {
+exports.getAllUsers = function(req, res, next) {
   user.find({
     isAdmin: false
   }, function(err, users) {
