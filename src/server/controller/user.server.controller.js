@@ -40,10 +40,6 @@ exports.signIn = function(req, res) {
       expiresIn: '6h',
     });
 
-    if(req.body.rememberMe) {
-      token = jwt.sign(payload, 'buycepsdotcomsecret');
-    }
-   
     return res.json({
       success: true,
       message: 'auth token',

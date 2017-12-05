@@ -15,7 +15,6 @@
             if (response.data.isAdmin) {
               $state.go('admin');
             } else {
-              $window.localStorage.setItem('auth_token', response.data.token);
               $state.go('app.home');
             }
           }).catch(function(err) {
