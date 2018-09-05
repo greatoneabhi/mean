@@ -1,7 +1,7 @@
 module.exports = {
     database: {
         host: 'localhost',
-        db: 'buycepsDB',
-        url: 'mongodb://localhost/buycepsDB'
+        db: 'abhi',
+        url: 'mongodb://localhost/abhi'
     }
 }

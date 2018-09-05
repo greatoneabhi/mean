@@ -1,11 +1,11 @@
-angular.module('buycepsApp')
+angular.module('sampleApp')
 .config(function($stateProvider, $urlRouterProvider) {
     
     $urlRouterProvider.otherwise('app/home');
 
     $stateProvider
 
-        .state('login', {
+        /*.state('login', {
             url: '/login',
             templateUrl: 'client/login/login.html'
         })
@@ -13,7 +13,7 @@ angular.module('buycepsApp')
         .state('register', {
             url: '/register',
             templateUrl: 'client/register/register.html'
-        })
+        })*/
 
         .state('app', {
             url: '/app',
