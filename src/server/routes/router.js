@@ -8,8 +8,7 @@ router.get('/', function(req, res) {
   res.send('Server is running');
 });
 
-router.post('/authenticate', user.signIn);
-router.post('/users', user.register);
+router.post('/users', user.create);
 
 router.get('/user', user.getUser);
 router.get('/users', user.getAllUsers);

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('buycepsApp')
+  angular.module('sampleApp')
     .controller('loginController', ['$scope', '$http', '$state', '$window', function($scope, $http, $state, $window) {
       console.log("loginController");
 

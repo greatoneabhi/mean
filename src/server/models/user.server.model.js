@@ -1,60 +1,54 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
-
-var addressSchema = new mongoose.Schema({
-  address: {
-      type: String
-  },
-  pincode: {
-    type: Number
-  },
-  city: {
-    type: String
-  },
-  state: {
-    type: String
-  }
-  
-});
 
 var userSchema = new mongoose.Schema({
-    name: {
+    serial_number: {
       type: String,
-      required: true,
       trim: true
     },
-    email: {
+    signum: {
       type: String,
       unique: true,
       required: true,
       trim: true
     },
-    phone: {
+    name: {
       type: String,
       trim: true
     },
-    password: {
+    gender: {
       type: String,
       trim: true
     },
-    isAdmin: {
+    t_shirt_size: {
+      type: String,
+      trim: true
+    },
+    manager_name: {
+      type: String,
+      trim: true
+    },
+    categary: {
+      type: String,
+      trim: true
+    },
+    categary_one: {
+      type: String,
+      trim: true
+    },
+    tshirt: {
       type: Boolean,
-      default: false
+      default: true
     },
-    billingAddress: addressSchema,
-    shippingAddress: [addressSchema],
-    loginDateTime: {
-      type: Date
+    snacks: {
+      type: Boolean,
+      default: true
     },
-    loggoutDateTime: {
-      type: Date
+    dinner: {
+      type: Boolean,
+      default: true
     }
 });
-
-userSchema.methods.comparePassword = function(password) {
-  return bcrypt.compareSync(password, this.password);
-}
 
 module.exports = mongoose.model('user', userSchema);

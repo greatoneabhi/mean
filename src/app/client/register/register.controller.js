@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('buycepsApp')
+  angular.module('sampleApp')
     .controller('registerController', ['$scope', '$http', function($scope, $http) {
       console.log("registerController");
 
