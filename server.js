@@ -3,7 +3,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('./src/server/config/db');
 const user = require('./src/server/models/user.server.model');
-const product = require('./src/server/models/product.server.model');
 
 app.set('superSecret', 'buycepsdotcomsecret');
 

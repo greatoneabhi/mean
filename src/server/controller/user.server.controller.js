@@ -16,6 +16,16 @@ exports.create = function(req, res, next) {
   });
 };
 
+exports.update = function(req, res, next) {
+  console.log("id: ", req.body._id);
+  user.findOneAndUpdate({
+    _id: mongoose.Types.ObjectId(req.body._id)
+  }, req.body, function(err, user) {
+    if (err) next(err);
+    return res.send("updated user successfully");
+  });
+};
+
 exports.getAllUsers = function(req, res, next) {
   user.find({}, function(err, users) {
     if (err) throw err;

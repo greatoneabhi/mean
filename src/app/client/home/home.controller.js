@@ -24,7 +24,6 @@
 
       $http.get('/api/users')
         .then(function(response) {
-          console.log("Users list: ", response.data);
           homeCtrl.employees = response.data;
         }).catch(function(error) {
           console.log(error);
@@ -33,7 +32,7 @@
       homeCtrl.confirmationDialog = function(employee, action) {
         homeCtrl.confirmationDialogConfig = {
           title: "Caution!!!",
-          message: "Are you sure you want to give the coupon?",
+          message: "Are you sure you want to proceed?",
           data: employee,
           button: {
             label: "OK",
@@ -51,17 +50,46 @@
           case "availDinnerCoupon":
             homeCtrl.availDinnerCoupon(data);
             break;
+          case "availTshirt":
+            homeCtrl.availTshirt(data);
+            break;
         }
 
       };
+      
+      homeCtrl.availTshirt = function(employee) {
+        employee.tshirt = false;
+        console.log("Give tshirt to: ", employee);
+        $http.put('/api/user', employee)
+          .then(function(response) {
+            console.log("success")
+        }).catch(function(error) {
+            console.log(error);
+        });
+        homeCtrl.showDialog();
+      }
 
       homeCtrl.availSnacksCoupon = function(employee) {
-        console.log("Gine snacks coupon to: ", employee);
+        employee.snacks = false;
+        console.log("Give snacks coupon to: ", employee);
+         $http.put('/api/user', employee)
+          .then(function(response) {
+            console.log("success")
+        }).catch(function(error) {
+            console.log(error);
+        });
         homeCtrl.showDialog();
       }
 
       homeCtrl.availDinnerCoupon = function(employee) {
+        employee.dinner = false;
         console.log("Give dinner coupon to: ", employee);
+         $http.put('/api/user', employee)
+          .then(function(response) {
+            console.log("success")
+        }).catch(function(error) {
+            console.log(error);
+        });
         homeCtrl.showDialog();
       }
 
