@@ -1,6 +1,5 @@
 (function() {
   'use strict';
-<<<<<<< HEAD
 
   angular.module('sampleApp')
     .controller('homeController', ['$scope', '$http', '$state', '$window', function($scope, $http, $state, $window) {
@@ -74,30 +73,5 @@
         jQuery("#confirmation-dialog .modal").modal(flag ? 'show' : 'hide');
       };
 
-=======
-  
-  angular.module('sampleApp')
-    .controller('homeController', ['$scope', '$http', '$state', '$window', function($scope, $http, $state, $window) {
-      
-      console.log("Home controller");
-      var homeCtrl = this;
-      
-      homeCtrl.users = [
-        {
-          "signum" : "ezahmbu",
-          "breakfast" : true,
-          "dinner" : true
-        },
-        {
-          "signum" : "ezahmau",
-          "breakfast" : false,
-          "dinner" : false
-        }
-      ];
-      
-      homeCtrl.submit = function() {
-        console.log("search");
-      };
->>>>>>> 70a97fa2de013a095da70e2dacc4dedf9b86f10b
     }]);
 })();
