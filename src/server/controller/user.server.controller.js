@@ -35,7 +35,7 @@ exports.getAllUsers = function(req, res, next) {
 
 exports.getUser = function(req, res, next) {
   user.findOne({
-    _id: mongoose.Types.ObjectId(req.decoded.id)
+    _id: mongoose.Types.ObjectId(req.params.id)
   }, function(err, user) {
     if (err) throw err;
     return res.send(user);

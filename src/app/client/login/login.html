@@ -1,7 +1,7 @@
 <div class="container" ng-controller="loginController as loginCtrl">
   <div class="row">
     <div class="col-md-4 col-md-offset-4" style="margin-top:30px">
-      <a ui-sref="app.home">Food Coupon</a>
+      <h1 ui-sref="app.home"></h1>
     </div>
   </div>
   <div class="row">
@@ -15,10 +15,9 @@
         </div>
         <div class="panel-body">
           <form name="loginForm" ng-submit="submit(loginForm.$valid)" novalidate>
-            <div class="form-group" ng-class="{'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine}">
-              <label class="sr-only" for="email">Email Address:</label>
-              <input class="form-control" ng-model="loginCtrl.login.email" type="email" name="email" id="email" placeholder="Enter Email" required>
-              <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">Enter a valid email</p>
+            <div class="form-group">
+              <label class="sr-only" for="email">Signum:</label>
+              <input class="form-control" ng-model="loginCtrl.login.signum" type="text" name="signum" id="signum" placeholder="Enter Signum" required>
             </div>
             <div class="form-group" ng-class="{'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine}">
               <label class="sr-only" for="password">Passowrd:</label>
@@ -31,10 +30,6 @@
               <div class="checkbox">
                 <label><input type="checkbox" ng-model="loginCtrl.login.rememberMe"> Remember me</label>
               </div>
-              <div class="divider-line">
-                <div class="divider-text">New User?</div>
-              </div>
-              <a ui-sref="register">Sign Up</a>
             </div>
           </form>
         </div>

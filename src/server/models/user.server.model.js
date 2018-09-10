@@ -48,6 +48,10 @@ var userSchema = new mongoose.Schema({
     dinner: {
       type: Boolean,
       default: true
+    },
+    participants: {
+      type: Boolean,
+      default: false
     }
 });
 

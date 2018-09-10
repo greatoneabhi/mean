@@ -19,7 +19,8 @@
           <th>Gender</th>
           <th>Manager Name</th>
           <th>Category</th>
-          <th>Category 1</th>
+          <th>PDU</th>
+          <th>Participants</th>
           <th>Tshirt Size</th>
           <th>Tshirt</th>
           <th>Snacks Coupon</th>
@@ -34,7 +35,8 @@
           <td>{{employee.gender}}</td>
           <td>{{employee.manager_name}}</td>
           <td>{{employee.categary}}</td>
-          <td>{{employee.categary_one}}</td>
+          <td>{{employee.pdu}}</td>
+          <td>{{employee.participants}}</td>
           <td>{{employee.t_shirt_size}}</td>
           <td ng-if="employee.tshirt"><button class="btn btn-warning" ng-click='homeCtrl.confirmationDialog(employee, "availTshirt")'>Avail</button></td>
           <td ng-if="!employee.tshirt"><button class="btn btn-default" disabled>Availed</button></td>

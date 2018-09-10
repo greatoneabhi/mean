@@ -3,8 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('./src/server/config/db');
 const user = require('./src/server/models/user.server.model');
+const admin = require('./src/server/models/admin.server.model');
 
-app.set('superSecret', 'buycepsdotcomsecret');
+app.set('superSecret', 'thisisasecretkey');
 
 //parse incoming requests
 app.use(bodyParser.json());
