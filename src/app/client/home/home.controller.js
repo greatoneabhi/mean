@@ -53,6 +53,9 @@
           case "availTshirt":
             homeCtrl.availTshirt(data);
             break;
+          case "makeParticipant":
+            homeCtrl.makeParticipant(data);
+            break;
         }
 
       };
@@ -105,6 +108,13 @@
           console.log(error);
         });
         homeCtrl.showDialog();
+      }
+      
+      homeCtrl.makeParticipant = function(employee) {
+        employee.participants = true;
+        homeCtrl.updateEmployee(employee);  
+        homeCtrl.showDialog();
+        
       }
       
       homeCtrl.updateEmployee = function(employee) {
