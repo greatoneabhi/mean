@@ -14,15 +14,15 @@ gulp.task('clean', done => {
     done();
 });
 
-gulp.task('styles', done => {require('./gulp/styles')(gulp, less, conf, path, inject); done();});
+gulp.task('styles', require('./gulp/styles')(gulp, less, conf, path, inject));
 
-gulp.task('copy-scripts', gulp.series('styles', done => {require('./gulp/copy-scripts')(gulp, conf, path); done();}));
+gulp.task('copy-scripts', gulp.series('styles', require('./gulp/copy-scripts')(gulp, conf, path)));
 
-gulp.task('inject', gulp.series('copy-scripts', done => {require('./gulp/inject')(gulp, conf, path, inject); done();}));
+gulp.task('inject', gulp.series('copy-scripts', require('./gulp/inject')(gulp, conf, path, inject)));
 
-gulp.task('nodemon', done => {require('./gulp/nodemon')(gulp, browserSync); done();});
+gulp.task('nodemon', require('./gulp/nodemon')(gulp, browserSync));
 
-gulp.task('serve', gulp.series('inject', 'nodemon', done => {require('./gulp/serve')(gulp, conf, browserSync); done();}));
+gulp.task('serve', gulp.series('inject', 'nodemon', require('./gulp/serve')(gulp, conf, browserSync)));
 
 gulp.task('default', gulp.series('serve',done => {
     gulp.watch('src/**/*.js', ['inject']);
