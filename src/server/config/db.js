@@ -2,9 +2,7 @@ const mongoose = require('mongoose');
 const config = require('./config');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.database.url, {
-    useMongoClient: true
-});
+mongoose.connect(config.database.url, { useUnifiedTopology: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));

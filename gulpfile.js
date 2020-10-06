@@ -9,22 +9,24 @@ var browserSync = require('browser-sync').create();
 var inject = require('gulp-inject');
 var angularFileSort = require('gulp-angular-filesort');
 
-/*gulp.task('clean', function() {
+gulp.task('clean', done => {
     return del('.build');
-});*/
+    done();
+});
 
-gulp.task('styles', require('./gulp/styles')(gulp, less, conf, path, inject));
+gulp.task('styles', done => {require('./gulp/styles')(gulp, less, conf, path, inject); done();});
 
-gulp.task('copy-scripts', ['styles'], require('./gulp/copy-scripts')(gulp, conf, path));
+gulp.task('copy-scripts', gulp.series('styles', done => {require('./gulp/copy-scripts')(gulp, conf, path); done();}));
 
-gulp.task('inject', ['copy-scripts'], require('./gulp/inject')(gulp, conf, path, inject));
+gulp.task('inject', gulp.series('copy-scripts', done => {require('./gulp/inject')(gulp, conf, path, inject); done();}));
 
-gulp.task('nodemon', require('./gulp/nodemon')(gulp, browserSync));
+gulp.task('nodemon', done => {require('./gulp/nodemon')(gulp, browserSync); done();});
 
-gulp.task('serve', ['inject', 'nodemon'], require('./gulp/serve')(gulp, conf, browserSync));
+gulp.task('serve', gulp.series('inject', 'nodemon', done => {require('./gulp/serve')(gulp, conf, browserSync); done();}));
 
-gulp.task('default', ['serve'], function() {
+gulp.task('default', gulp.series('serve',done => {
     gulp.watch('src/**/*.js', ['inject']);
     gulp.watch('src/**/*.html', ['inject']);
     gulp.watch('build/index.html').on('change', browserSync.reload);
-});
+    done();
+}));
